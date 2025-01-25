@@ -13,7 +13,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Initialize a free LLM (you can use OpenAI's model or any other LLM supported by LangChain)
 # Make sure you have the required API key configured if using OpenAI
-llm = OpenAI(model_name="text-davinci-003", temperature=0.7)
+llm = OpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 
 @app.route('/', methods=['POST'])
 def process_content():
@@ -28,7 +28,7 @@ def process_content():
         content = data['content']
 
         # Use the LLM to process the content
-        response = llm(content)
+        response = llm.invoke(content)
 
         # Return the response from the LLM
         return jsonify({"response": response})

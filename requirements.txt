@@ -1,3 +1,6 @@
 flask
 langchain
 openai
+langchain_openai
+python-dotenv
+flask_cors
